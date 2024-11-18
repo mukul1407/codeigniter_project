@@ -36,12 +36,12 @@
               <th>Delete</th>
             </tr>
 
-            <?php if (!empty($rows)) {?>
+              <?php if (!empty($rows)) {?>
               <?php foreach ($rows as $row) {
-    $data['row'] = $row;
-    $this->load->view('car_model/car_row.php', $data);
-}
-    ?>
+               $data['row'] = $row;
+               $this->load->view('car_model/car_row.php', $data);
+             }
+             ?>
             <?php } else {?>
                   <tr>
                     <td>Records not found</td>
@@ -90,8 +90,6 @@
     </div>
 </div>
 
-
-
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -112,9 +110,8 @@
     </div>
 </div>
 
- <script type="text/javascript">
-
-         function showModal() {
+      <script type="text/javascript">
+       function showModal() {
        $("#createCar").modal("show");
        $("#createCar #title").html("Create");
        $.ajax({
@@ -127,7 +124,6 @@
              }
           })
         }
-
 
       $("body").on("submit","#createCarModel", function(e){
           e.preventDefault();
@@ -177,7 +173,6 @@
                    $(".priceError").html("").removeClass('invalid-feedback d-block');
                    $("#price").removeClass('is-invalid');
 
-
                    $("#carModelList").append(response["row"]);
                }
 
@@ -198,8 +193,7 @@
         });
      }
 
-
-    $("body").on("submit","#editCarModel", function(e){
+       $("body").on("submit","#editCarModel", function(e){
           e.preventDefault();
 
           $.ajax({
@@ -259,8 +253,7 @@
        });
     });
 
-
-    function confirmDeleteModel(id) {
+      function confirmDeleteModel(id) {
           $("#deleteModal").modal("show");
           $("#deleteModal .modal-body").html("Are you sure you want to deleted #"+id+ "?");
           $("#deleteModal").data("id",id);
@@ -286,7 +279,6 @@
           }
       });      
   }
-
 </script>
 </body>
 </html>
